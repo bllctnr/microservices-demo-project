@@ -1,0 +1,54 @@
+﻿using AutoMapper;
+using CatalogAPI.Business.Abstract;
+using CatalogAPI.Entities;
+using CatalogAPI.Entities.Dtos;
+using CatalogAPI.Settings;
+using Core.Results;
+using MongoDB.Driver;
+
+namespace CatalogAPI.Services
+{
+    internal class CategoryManager : ICategoryService
+    {
+        private readonly IMongoCollection<Category> _categoryCollection;
+        private readonly IMapper _mapper;
+
+
+        // Will be repository pattern
+        public CategoryManager(IDataBaseSettings databaseSettings, IMapper mapper)
+        {
+            var client = new MongoClient(databaseSettings.ConnectionString);
+            var database = client.GetDatabase(databaseSettings.DatabaseName);
+            _categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
+            _mapper = mapper;
+        }
+
+        public async Task<IJsonDataResult<List<CategoryDto>>> GetAllAsync() 
+        {
+            var result = await _categoryCollection.Find(category => true).ToListAsync();
+            return new SuccessJsonDataResult<List<CategoryDto>>(_mapper.Map<List<CategoryDto>>(result));
+        }
+
+        public async Task<IJsonDataResult<CategoryDto>> CreateAsync(Category category)
+        {
+            await _categoryCollection.InsertOneAsync(category);
+            return new SuccessJsonDataResult<CategoryDto>(_mapper.Map<CategoryDto>(category));
+        }
+
+        public async Task<IJsonDataResult<CategoryDto>> GetByIdAsync(string Id) 
+        {
+            var result = await _categoryCollection.Find<Category>(category => category.Id == Id).FirstOrDefaultAsync();
+            if (result == null)
+            {
+                
+            }
+            return new SuccessJsonDataResult<CategoryDto>(_mapper.Map<CategoryDto>(result));
+        }
+
+        public async Task<Core.Results.IJsonResult> DeleteAsync(string categoryId)
+        {
+            var result = await _categoryCollection.DeleteOneAsync(categoryId);
+            return new SuccessJsonResult("Record Deleted");
+        }
+    }
+}
