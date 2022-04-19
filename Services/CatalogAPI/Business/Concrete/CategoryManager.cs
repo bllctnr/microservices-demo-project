@@ -8,7 +8,7 @@ using MongoDB.Driver;
 
 namespace CatalogAPI.Services
 {
-    internal class CategoryManager : ICategoryService
+    public class CategoryManager : ICategoryService
     {
         private readonly IMongoCollection<Category> _categoryCollection;
         private readonly IMapper _mapper;
@@ -29,10 +29,13 @@ namespace CatalogAPI.Services
             return new SuccessJsonDataResult<List<CategoryDto>>(_mapper.Map<List<CategoryDto>>(result));
         }
 
-        public async Task<IJsonDataResult<CategoryDto>> CreateAsync(Category category)
+        public async Task<IJsonDataResult<CategoryDto>> CreateAsync(CategoryDto categoryDto)
         {
-            await _categoryCollection.InsertOneAsync(category);
-            return new SuccessJsonDataResult<CategoryDto>(_mapper.Map<CategoryDto>(category));
+            _categoryCollection.FindOneAndDelete<Category>(category => category.Id == null);
+
+            var newCategory = _mapper.Map<Category>(categoryDto);
+            await _categoryCollection.InsertOneAsync(newCategory);
+            return new SuccessJsonDataResult<CategoryDto>(_mapper.Map<CategoryDto>(newCategory));
         }
 
         public async Task<IJsonDataResult<CategoryDto>> GetByIdAsync(string Id) 

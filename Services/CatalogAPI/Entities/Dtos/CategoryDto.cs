@@ -1,6 +1,9 @@
-﻿namespace CatalogAPI.Entities.Dtos
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace CatalogAPI.Entities.Dtos
 {
-    internal class CategoryDto : IDto
+    public class CategoryDto : IDto
     {
         public string Id { get; set; }
         public string Name { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace CatalogAPI.Entities.Dtos
 {
-    internal class CourseCreateDto : IDto
+    public class CourseCreateDto : IDto
     {
         public string Name { get; set; }
         public decimal Price { get; set; }

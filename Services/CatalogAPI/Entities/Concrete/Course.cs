@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace CatalogAPI.Entities
 {
-    internal class Course : IEntity
+    public class Course : IEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

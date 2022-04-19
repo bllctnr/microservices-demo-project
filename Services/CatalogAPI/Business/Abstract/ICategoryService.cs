@@ -4,11 +4,11 @@ using Core.Results;
 
 namespace CatalogAPI.Business.Abstract
 {
-    internal interface ICategoryService
+    public interface ICategoryService
     {
         Task<IJsonDataResult<CategoryDto>> GetByIdAsync(string categoryId);
         Task<IJsonDataResult<List<CategoryDto>>> GetAllAsync();
-        Task<IJsonDataResult<CategoryDto>> CreateAsync(Category category);
+        Task<IJsonDataResult<CategoryDto>> CreateAsync(CategoryDto categoryDto);
         Task<IJsonResult> DeleteAsync(string categoryId);
     }
 }

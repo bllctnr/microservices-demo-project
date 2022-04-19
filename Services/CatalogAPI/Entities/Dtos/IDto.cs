@@ -1,6 +1,6 @@
 ﻿namespace CatalogAPI.Entities.Dtos
 {
-    internal interface IDto
+    public interface IDto
     {
     }
 }

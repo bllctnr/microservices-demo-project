@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace CatalogAPI.Entities
 {
-    internal class Feature : IEntity
+    public class Feature : IEntity
     {
         public int Duration { get; set; }
     }

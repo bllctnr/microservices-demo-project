@@ -8,7 +8,7 @@ using MongoDB.Driver;
 
 namespace CatalogAPI.Business.Concrete
 {
-    internal class CourseManager : ICourseService
+    public class CourseManager : ICourseService
     {
         private readonly IMongoCollection<Course> _courseCollection;
         private readonly IMongoCollection<Category> _categoryCollection;
@@ -25,6 +25,7 @@ namespace CatalogAPI.Business.Concrete
         }
         public async Task<IJsonDataResult<List<CourseDto>>> GetAllAsync() 
         {
+            _courseCollection.DeleteOne<Course>(c => c.Id == "625f1e27c82c415e9d5ca3c2");
             var courses = await _courseCollection.Find(course => true).ToListAsync();
             if (courses != null)
             {
