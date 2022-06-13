@@ -1,2 +1,7 @@
 Services
+	Identity Server : 5001
 	Catalog API : 5011
+	PhotoService : 5012
+
+Passowrds
+	Portainer : Admin - 258258258
