@@ -18,9 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "Services\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{46C6D780-3ADC-4831-B004-5ACC41966C96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoServiceAPI", "Services\PhotoServiceAPI\PhotoServiceAPI.csproj", "{8DC2C7AA-37AC-46D4-81C9-D7453CE1E580}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoServiceAPI", "Services\PhotoServiceAPI\PhotoServiceAPI.csproj", "{8DC2C7AA-37AC-46D4-81C9-D7453CE1E580}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketAPI", "Services\BasketAPI\BasketAPI.csproj", "{70A39804-6C73-4FF7-864A-DD39C2ABEA9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCartAPI", "Services\ShoppingCartAPI\ShoppingCartAPI.csproj", "{70A39804-6C73-4FF7-864A-DD39C2ABEA9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
