@@ -2,6 +2,7 @@ Services
 	Identity Server : 5001
 	Catalog API : 5011
 	PhotoService : 5012
+	BasketAPI : 5013
 
 Passowrds
 	Portainer : Admin - 258258258
