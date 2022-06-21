@@ -5,4 +5,4 @@ Services
 	BasketAPI : 5013
 
 Passowrds
-	Portainer : Admin - 258258258
+	Portainer : localhost:9443 - Admin - 258258258

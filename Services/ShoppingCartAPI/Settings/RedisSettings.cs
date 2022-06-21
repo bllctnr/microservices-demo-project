@@ -1,4 +1,4 @@
-﻿namespace BasketAPI.Settings
+﻿namespace ShoppingCartAPI.Settings
 {
     public class RedisSettings
     {

@@ -17,6 +17,7 @@ namespace IdentityServer
         {
             new ApiResource("resource_catalog"){ Scopes = {"catalog_fullpermission"}},
             new ApiResource("resource_photostock"){ Scopes = {"photostock_fullpermission"}},
+            new ApiResource("resource_shoppingcart"){ Scopes = {"shoppingcart_fullpermission"}},
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -35,6 +36,7 @@ namespace IdentityServer
             {
                 new ApiScope("catalog_fullpermission","Full permission for Catalog API"),
                 new ApiScope("photostock_fullpermission","Full permission for Photo Stock API"),
+                new ApiScope("shoppingcart_fullpermission", "Full permission for shoppingcart"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -47,7 +49,12 @@ namespace IdentityServer
                     ClientId = "WebMvcClient",
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    AllowedScopes = { "catalog_fullpermission", "photostock_fullpermission", IdentityServerConstants.LocalApi.ScopeName}
+                    AllowedScopes = {
+                        "catalog_fullpermission", 
+                        "photostock_fullpermission",
+                        "shoppingcart_fullpermission", 
+                        IdentityServerConstants.LocalApi.ScopeName
+                    }
                 },
                 new Client
                 {
@@ -59,6 +66,7 @@ namespace IdentityServer
                     AllowedScopes = {
                         "catalog_fullpermission",
                         "photostock_fullpermission",
+                        "shoppingcart_fullpermission",
                         IdentityServerConstants.StandardScopes.Email, 
                         IdentityServerConstants.StandardScopes.OpenId, 
                         IdentityServerConstants.StandardScopes.Profile,

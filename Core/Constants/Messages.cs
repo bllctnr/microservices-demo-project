@@ -15,6 +15,9 @@ namespace Core.Constants
         public static string RecordsUpdated = "Records successfully updated";
         public static string RecordsDeleted = "Records successfully deleted";
         public static string RecordNotFount = "Record not found.";
+        // Redis
+        public static string RecordUpdatedOrAdded = "Record updated or added.";
+        public static string RecordCouldNotUpdatedOrAdded = "Record could not updated or added.";
 
         public static string PhotoSaved = "Photo successfully saved";
         public static string PhotoCouldNotSaved = "Photo could not be saved";

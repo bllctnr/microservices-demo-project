@@ -1,8 +1,8 @@
-﻿using BasketAPI.Entities.Dto;
+﻿using ShoppingCartAPI.Entities.Dto;
 
-namespace BasketAPI.Dtos
+namespace ShoppingCartAPI.Dtos
 {
-    public class BasketItemDto : IDto
+    public class ShoppingCartItemDto : IDto
     {
         public int Quantity { get; set; }
         public string CourseId { get; set; }

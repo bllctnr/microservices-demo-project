@@ -5,7 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Core\**" />
+    <EmbeddedResource Remove="Core\**" />
+    <None Remove="Core\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Results\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
 </Project>
