@@ -1,9 +1,0 @@
-Services
-	Identity Server : 5001
-	Catalog API : 5011
-	PhotoService : 5012
-	BasketAPI : 5013
-	CouponAPI : 5014
-
-Passowrds
-	Portainer : localhost:9443 - Admin - 258258258
