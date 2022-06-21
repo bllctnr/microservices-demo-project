@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoServiceAPI", "Services
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCartAPI", "Services\ShoppingCartAPI\ShoppingCartAPI.csproj", "{70A39804-6C73-4FF7-864A-DD39C2ABEA9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CouponAPI", "Services\CouponAPI\CouponAPI.csproj", "{A25743DE-E604-4236-B918-EA70426404EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{70A39804-6C73-4FF7-864A-DD39C2ABEA9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70A39804-6C73-4FF7-864A-DD39C2ABEA9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70A39804-6C73-4FF7-864A-DD39C2ABEA9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A25743DE-E604-4236-B918-EA70426404EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25743DE-E604-4236-B918-EA70426404EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A25743DE-E604-4236-B918-EA70426404EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A25743DE-E604-4236-B918-EA70426404EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{46C6D780-3ADC-4831-B004-5ACC41966C96} = {383476B7-6AD2-43AD-A852-E032DFCE06A7}
 		{8DC2C7AA-37AC-46D4-81C9-D7453CE1E580} = {7FE6C585-0D17-4DDF-A8B3-4F192BDDF174}
 		{70A39804-6C73-4FF7-864A-DD39C2ABEA9F} = {7FE6C585-0D17-4DDF-A8B3-4F192BDDF174}
+		{A25743DE-E604-4236-B918-EA70426404EE} = {7FE6C585-0D17-4DDF-A8B3-4F192BDDF174}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC7C4BED-4A92-4C94-869D-CDFD363FE61B}
