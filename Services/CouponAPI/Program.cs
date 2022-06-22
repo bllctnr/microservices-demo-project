@@ -1,3 +1,6 @@
+using Core.IdentityService;
+using CouponAPI.Business.Abstract;
+using CouponAPI.Business.Concrete;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -20,9 +23,15 @@ builder.Services.AddControllers(options => {
     // Add authorize to all controllers
     options.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
 });
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpContextAccessor();
+
+
+// Dependency Resolve
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityManager>();
+builder.Services.AddScoped<ICouponService, CouponManager>();
+
 
 var app = builder.Build();
 

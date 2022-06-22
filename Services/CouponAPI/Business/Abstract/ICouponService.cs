@@ -10,6 +10,6 @@ namespace CouponAPI.Business.Abstract
         Task<IJsonResult> Add(CouponDto coupon);
         Task<IJsonResult> Update(CouponDto coupon);
         Task<IJsonResult> Delete(int id);
-        Task<IJsonDataResult<CouponDto>> GetByUserIdAndCode(string code, int userId);
+        Task<IJsonDataResult<CouponDto>> GetByUserIdAndCode(string code, string userId);
     }
 }

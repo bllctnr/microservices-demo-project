@@ -50,12 +50,12 @@ namespace CouponAPI.Business.Concrete
             var coupon = await _dbConnection.QueryAsync<Coupon>("select * from coupon where id = @Id", new { Id = id });
             if (coupon == null)
             {
-                return new ErrorJsonDataResult<CouponDto>(null, Messages.RecordNotFount);
+                return new ErrorJsonDataResult<CouponDto>(_mapper.Map<CouponDto>(coupon), Messages.RecordNotFount);
             }
             return new SuccessJsonDataResult<CouponDto>(_mapper.Map<CouponDto>(coupon), Messages.RecordGetted);
         }
 
-        public async Task<IJsonDataResult<CouponDto>> GetByUserIdAndCode(string code, int userId)
+        public async Task<IJsonDataResult<CouponDto>> GetByUserIdAndCode(string code, string userId)
         {
             var coupon = await _dbConnection.QueryAsync<Coupon>("select * from coupon where code = @Code and userid = @UserId", new { Code = code, UserId = userId });
             if (coupon == null)
