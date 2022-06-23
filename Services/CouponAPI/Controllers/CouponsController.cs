@@ -77,7 +77,7 @@ namespace CouponAPI.Controllers
             return Ok(result);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _couponService.Delete(id);
@@ -87,6 +87,5 @@ namespace CouponAPI.Controllers
             }
             return Ok(result);
         }
-
     }
 }

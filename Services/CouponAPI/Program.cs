@@ -1,15 +1,17 @@
+﻿using AutoMapper;
 using Core.IdentityService;
 using CouponAPI.Business.Abstract;
 using CouponAPI.Business.Concrete;
+using CouponAPI.Entities.Mappings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
-// Add Jwt Authentication
-var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
+
+var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build(); // Create Policy
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub"); // Remove mapping of sub
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     // Token Issuer
@@ -18,11 +20,20 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.RequireHttpsMetadata = false;
 });
 
-// Add services to the container.
-builder.Services.AddControllers(options => {
-    // Add authorize to all controllers
-    options.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
+// AutoMapper Implementation
+var automapperConfig = new MapperConfiguration(cfg =>
+{
+    cfg.AddProfile(new GeneralMappings());
 });
+var mapper = automapperConfig.CreateMapper​();
+builder.Services.AddSingleton(mapper);
+
+builder.Services.AddControllers(opt => {
+    opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
+});
+
+// Add services to the container.
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpContextAccessor();

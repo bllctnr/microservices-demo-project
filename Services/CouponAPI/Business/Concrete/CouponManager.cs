@@ -25,8 +25,8 @@ namespace CouponAPI.Business.Concrete
 
         public async Task<IJsonResult> Add(CouponDto coupon)
         {
-            var response = await _dbConnection.ExecuteAsync("INSERT INTO discount (userid, rate, code) VALUES (@UserId, @Rate, @Code)", _mapper.Map<Coupon>(coupon));
-            if (response !> 0)
+            var response = await _dbConnection.ExecuteAsync("INSERT INTO coupon (userid, rate, code) VALUES (@UserId, @Rate, @Code)", _mapper.Map<Coupon>(coupon));
+            if (response == 0)
             {
                 return new ErrorJsonResult(Messages.RecordCouldNotUpdatedOrAdded);
             }
@@ -48,27 +48,19 @@ namespace CouponAPI.Business.Concrete
         public async Task<IJsonDataResult<CouponDto>> GetById(int id)
         {
             var coupon = await _dbConnection.QueryAsync<Coupon>("select * from coupon where id = @Id", new { Id = id });
-            if (coupon == null)
-            {
-                return new ErrorJsonDataResult<CouponDto>(_mapper.Map<CouponDto>(coupon), Messages.RecordNotFount);
-            }
-            return new SuccessJsonDataResult<CouponDto>(_mapper.Map<CouponDto>(coupon), Messages.RecordGetted);
+            return new SuccessJsonDataResult<CouponDto>(_mapper.Map<CouponDto>(coupon.SingleOrDefault()), Messages.RecordGetted);
         }
 
         public async Task<IJsonDataResult<CouponDto>> GetByUserIdAndCode(string code, string userId)
         {
-            var coupon = await _dbConnection.QueryAsync<Coupon>("select * from coupon where code = @Code and userid = @UserId", new { Code = code, UserId = userId });
-            if (coupon == null)
-            {
-                return new ErrorJsonDataResult<CouponDto>(null, Messages.RecordNotFount);
-            }
+            var coupon = await _dbConnection.QueryAsync<Coupon>("select * from coupon where userid=@UserId and code=@Code", new { UserId = userId, Code = code });
             return new SuccessJsonDataResult<CouponDto>(_mapper.Map<CouponDto>(coupon), Messages.RecordGetted);
         }
 
         public async Task<IJsonResult> Update(CouponDto coupon)
         {
             var response = await _dbConnection.ExecuteAsync("update coupon set userid=@UserId, code=@Code, rate=@Rate where id=@Id", coupon);
-            if (response !> 0) 
+            if (response == 0) 
             {
                 return new ErrorJsonResult(Messages.RecordCouldNotUpdatedOrAdded);
             }

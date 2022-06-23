@@ -38,7 +38,7 @@ namespace IdentityServer
                 new ApiScope("catalog_fullpermission","Full permission for Catalog API"),
                 new ApiScope("photostock_fullpermission","Full permission for Photo Stock API"),
                 new ApiScope("shoppingcart_fullpermission", "Full permission for shoppingcart"),
-                new ApiScope("coupon_fullpermission", "Full permission for coupon"),
+                new ApiScope("coupon_fullpermission", "Full permission for coupon API"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
