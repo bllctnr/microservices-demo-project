@@ -31,7 +31,7 @@ builder.Services.Configure<DataBaseSettings>(builder.Configuration.GetSection("D
 
 // Business
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
-builder.Services.AddScoped<ICourseService, CourseManager>();
+builder.Services.AddScoped<IProductService, ProductManager>();
 // Business
 
 builder.Services.AddSingleton<IDataBaseSettings>(sp => 

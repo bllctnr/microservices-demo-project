@@ -1,6 +1,6 @@
 ﻿namespace CatalogAPI.Entities.Dtos
 {
-    public class CourseUpdateDto
+    public class ProductUpdateDto
     {
         public string Id { get; set; }
         public string Name { get; set; }

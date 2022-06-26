@@ -7,19 +7,19 @@ namespace CatalogAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CoursesController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        private readonly ICourseService _courseService;
+        private readonly IProductService _productService;
 
-        public CoursesController(ICourseService courseService)
+        public ProductsController(IProductService productService)
         {
-            _courseService = courseService;
+            _productService = productService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var response = await _courseService.GetAllAsync();
+            var response = await _productService.GetAllAsync();
             if (!response.Success)
             {
                 return BadRequest(response.Message);
@@ -30,7 +30,7 @@ namespace CatalogAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
-            var response = await _courseService.GetByIdAsync(id);
+            var response = await _productService.GetByIdAsync(id);
             if (!response.Success)
             {
                 return BadRequest(response.Message);
@@ -42,7 +42,7 @@ namespace CatalogAPI.Controllers
         [Route("/api/[controller]/GetAllByUserId/{userId}")]
         public async Task<IActionResult> GetAllByUserId(string userId)
         {
-            var response = await _courseService.GetAllByUserIdAsync(userId);
+            var response = await _productService.GetAllByUserIdAsync(userId);
             if (!response.Success)
             {
                 return BadRequest(response.Message);
@@ -51,9 +51,9 @@ namespace CatalogAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CourseCreateDto courseCreateDto)
+        public async Task<IActionResult> Create(ProductCreateDto productCreateDto)
         {
-            var response = await _courseService.CreateAsync(courseCreateDto);
+            var response = await _productService.CreateAsync(productCreateDto);
             if (!response.Success)
             {
                 return BadRequest(response.Message);
@@ -62,9 +62,9 @@ namespace CatalogAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(CourseUpdateDto courseUpdateDto)
+        public async Task<IActionResult> Update(ProductUpdateDto productUpdateDto)
         {
-            var response = await _courseService.UpdateAsync(courseUpdateDto);
+            var response = await _productService.UpdateAsync(productUpdateDto);
             if (!response.Success)
             {
                 return BadRequest(response.Message);
@@ -75,7 +75,7 @@ namespace CatalogAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var response = await _courseService.DeleteAsync(id);
+            var response = await _productService.DeleteAsync(id);
             if (!response.Success)
             {
                 return BadRequest(response.Message);
