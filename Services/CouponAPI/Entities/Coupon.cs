@@ -1,4 +1,4 @@
-﻿namespace CouponAPI.Entities
+﻿namespace Ecommerce.Services.CouponCode.APIEntities
 {
     [Dapper.Contrib.Extensions.Table("coupon")]
     public class Coupon : IEntity

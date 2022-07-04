@@ -1,11 +1,11 @@
-﻿using ShoppingCartAPI.Entities.Dto;
+﻿using Ecommerce.Services.ShoppingCart.API.Entities.Dto;
 using Core.Constants;
 using Core.Results;
-using ShoppingCartAPI.DataAccess;
+using Ecommerce.Services.ShoppingCart.API.DataAccess;
 using System.Text.Json;
-using ShoppingCartAPI.Business.Abstract;
+using Ecommerce.Services.ShoppingCart.API.Business.Abstract;
 
-namespace ShoppingCartAPI.Business.Concrete
+namespace Ecommerce.Services.ShoppingCart.API.Business.Concrete
 {
     public class ShoppingCartManager : IShoppingCartService
     {

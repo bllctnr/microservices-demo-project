@@ -1,7 +1,7 @@
-﻿using ShoppingCartAPI.Entities.Dto;
+﻿using Ecommerce.Services.ShoppingCart.API.Entities.Dto;
 using Core.Results;
 
-namespace ShoppingCartAPI.Business.Abstract
+namespace Ecommerce.Services.ShoppingCart.API.Business.Abstract
 {
     public interface IShoppingCartService
     {

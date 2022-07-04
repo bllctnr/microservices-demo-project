@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CouponAPI.Entities.Dtos;
+using Ecommerce.Services.CouponCode.APIEntities.Dtos;
 
-namespace CouponAPI.Entities.Mappings
+namespace Ecommerce.Services.CouponCode.APIEntities.Mappings
 {
     public class GeneralMappings : Profile
     {

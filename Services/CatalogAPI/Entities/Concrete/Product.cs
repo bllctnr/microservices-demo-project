@@ -1,8 +1,8 @@
-﻿using CatalogAPI.Entities.Abstract;
+﻿using Ecommerce.Services.Catalog.APIEntities.Abstract;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace CatalogAPI.Entities
+namespace Ecommerce.Services.Catalog.APIEntities
 {
     public class Product : IEntity
     {

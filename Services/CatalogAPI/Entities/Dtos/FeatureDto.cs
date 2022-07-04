@@ -1,4 +1,4 @@
-﻿namespace CatalogAPI.Entities.Dtos
+﻿namespace Ecommerce.Services.Catalog.APIEntities.Dtos
 {
     public class FeatureDto : IDto
     {

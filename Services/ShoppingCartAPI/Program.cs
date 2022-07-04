@@ -1,13 +1,13 @@
-using ShoppingCartAPI.Business.Abstract;
-using ShoppingCartAPI.Settings;
+using Ecommerce.Services.ShoppingCart.API.Business.Abstract;
+using Ecommerce.Services.ShoppingCart.API.Settings;
 using Core.IdentityService;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using ShoppingCartAPI.Business.Concrete;
-using ShoppingCartAPI.DataAccess;
+using Ecommerce.Services.ShoppingCart.API.Business.Concrete;
+using Ecommerce.Services.ShoppingCart.API.DataAccess;
 using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);

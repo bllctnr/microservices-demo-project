@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using Core.Constants;
 using Core.Results;
-using CouponAPI.Business.Abstract;
-using CouponAPI.Entities;
-using CouponAPI.Entities.Dtos;
+using Ecommerce.Services.CouponCode.APIBusiness.Abstract;
+using Ecommerce.Services.CouponCode.APIEntities;
+using Ecommerce.Services.CouponCode.APIEntities.Dtos;
 using Dapper;
 using Npgsql;
 using System.Data;
 
-namespace CouponAPI.Business.Concrete
+namespace Ecommerce.Services.CouponCode.APIBusiness.Concrete
 {
     public class CouponManager : ICouponService
     {

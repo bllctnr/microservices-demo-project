@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace CatalogAPI.Entities.Dtos
+namespace Ecommerce.Services.Catalog.APIEntities.Dtos
 {
     public class CategoryDto : IDto
     {

@@ -1,4 +1,4 @@
-﻿namespace CatalogAPI.Settings
+﻿namespace Ecommerce.Services.Catalog.APISettings
 {
     public class DataBaseSettings : IDataBaseSettings
     {

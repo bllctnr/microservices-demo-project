@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using CatalogAPI.Business.Abstract;
-using CatalogAPI.Entities;
-using CatalogAPI.Entities.Dtos;
-using CatalogAPI.Settings;
+using Ecommerce.Services.Catalog.APIBusiness.Abstract;
+using Ecommerce.Services.Catalog.APIEntities;
+using Ecommerce.Services.Catalog.APIEntities.Dtos;
+using Ecommerce.Services.Catalog.APISettings;
 using Core.Results;
 using MongoDB.Driver;
 
-namespace CatalogAPI.Business.Concrete
+namespace Ecommerce.Services.Catalog.APIBusiness.Concrete
 {
     public class ProductManager : IProductService
     {

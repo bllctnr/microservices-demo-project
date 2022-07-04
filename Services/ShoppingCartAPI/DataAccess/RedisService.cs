@@ -1,6 +1,6 @@
 ﻿using StackExchange.Redis;
 
-namespace ShoppingCartAPI.DataAccess
+namespace Ecommerce.Services.ShoppingCart.API.DataAccess
 {
     public class RedisService
     {

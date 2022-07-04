@@ -1,4 +1,4 @@
-﻿namespace ShoppingCartAPI.Settings
+﻿namespace Ecommerce.Services.ShoppingCart.API.Settings
 {
     public class RedisSettings
     {

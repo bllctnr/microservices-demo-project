@@ -1,7 +1,7 @@
 ﻿using Core.Results;
-using CouponAPI.Entities.Dtos;
+using Ecommerce.Services.CouponCode.APIEntities.Dtos;
 
-namespace CouponAPI.Business.Abstract
+namespace Ecommerce.Services.CouponCode.APIBusiness.Abstract
 {
     public interface ICouponService
     {

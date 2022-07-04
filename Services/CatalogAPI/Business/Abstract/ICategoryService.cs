@@ -1,8 +1,8 @@
-﻿using CatalogAPI.Entities;
-using CatalogAPI.Entities.Dtos;
+﻿using Ecommerce.Services.Catalog.APIEntities;
+using Ecommerce.Services.Catalog.APIEntities.Dtos;
 using Core.Results;
 
-namespace CatalogAPI.Business.Abstract
+namespace Ecommerce.Services.Catalog.APIBusiness.Abstract
 {
     public interface ICategoryService
     {

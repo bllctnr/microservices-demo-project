@@ -1,8 +1,8 @@
 
-using CatalogAPI.Business.Abstract;
-using CatalogAPI.Business.Concrete;
-using CatalogAPI.Services;
-using CatalogAPI.Settings;
+using Ecommerce.Services.Catalog.APIBusiness.Abstract;
+using Ecommerce.Services.Catalog.APIBusiness.Concrete;
+using Ecommerce.Services.Catalog.APIServices;
+using Ecommerce.Services.Catalog.APISettings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;

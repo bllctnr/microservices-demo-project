@@ -2,9 +2,9 @@
 using Core.Results;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PhotoService.Dto;
+using Ecommerce.Services.PhotoService.API.Dto;
 
-namespace PhotoService.Controllers
+namespace Ecommerce.Services.PhotoService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

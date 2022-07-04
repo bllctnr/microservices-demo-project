@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Core.IdentityService;
-using CouponAPI.Business.Abstract;
-using CouponAPI.Business.Concrete;
-using CouponAPI.Entities.Mappings;
+using Ecommerce.Services.CouponCode.APIBusiness.Abstract;
+using Ecommerce.Services.CouponCode.APIBusiness.Concrete;
+using Ecommerce.Services.CouponCode.APIEntities.Mappings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;

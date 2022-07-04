@@ -1,4 +1,4 @@
-﻿namespace PhotoService.Dto
+﻿namespace Ecommerce.Services.PhotoService.API.Dto
 {
     public class PhotoDto
     {

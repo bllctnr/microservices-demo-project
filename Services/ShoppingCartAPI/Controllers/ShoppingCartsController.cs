@@ -1,10 +1,10 @@
-﻿using ShoppingCartAPI.Business.Abstract;
-using ShoppingCartAPI.Entities.Dto;
+﻿using Ecommerce.Services.ShoppingCart.API.Business.Abstract;
+using Ecommerce.Services.ShoppingCart.API.Entities.Dto;
 using Core.IdentityService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ShoppingCartAPI.Controllers
+namespace Ecommerce.Services.ShoppingCart.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

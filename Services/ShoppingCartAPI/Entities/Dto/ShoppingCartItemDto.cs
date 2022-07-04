@@ -1,6 +1,6 @@
-﻿using ShoppingCartAPI.Entities.Dto;
+﻿using Ecommerce.Services.ShoppingCart.API.Entities.Dto;
 
-namespace ShoppingCartAPI.Dtos
+namespace Ecommerce.Services.ShoppingCart.API.Dtos
 {
     public class ShoppingCartItemDto : IDto
     {

@@ -1,9 +1,9 @@
-﻿using CatalogAPI.Business.Abstract;
-using CatalogAPI.Entities.Dtos;
+﻿using Ecommerce.Services.Catalog.APIBusiness.Abstract;
+using Ecommerce.Services.Catalog.APIEntities.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CatalogAPI.Controllers
+namespace Ecommerce.Services.Catalog.APIControllers
 {
     [Route("api/[controller]")]
     [ApiController]

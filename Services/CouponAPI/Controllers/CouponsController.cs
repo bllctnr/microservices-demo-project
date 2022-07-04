@@ -1,10 +1,10 @@
 ﻿using Core.IdentityService;
-using CouponAPI.Business.Abstract;
-using CouponAPI.Entities.Dtos;
+using Ecommerce.Services.CouponCode.APIBusiness.Abstract;
+using Ecommerce.Services.CouponCode.APIEntities.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CouponAPI.Controllers
+namespace Ecommerce.Services.CouponCode.APIControllers
 {
     [Route("api/[controller]")]
     [ApiController]

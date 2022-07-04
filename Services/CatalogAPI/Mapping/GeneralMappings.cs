@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CatalogAPI.Entities;
-using CatalogAPI.Entities.Dtos;
+using Ecommerce.Services.Catalog.APIEntities;
+using Ecommerce.Services.Catalog.APIEntities.Dtos;
 
-namespace CatalogAPI.Mapping
+namespace Ecommerce.Services.Catalog.APIMapping
 {
     public class GeneralMappings : Profile
     {

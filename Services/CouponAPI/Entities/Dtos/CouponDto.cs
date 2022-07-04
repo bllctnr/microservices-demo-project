@@ -1,4 +1,4 @@
-﻿namespace CouponAPI.Entities.Dtos
+﻿namespace Ecommerce.Services.CouponCode.APIEntities.Dtos
 {
     public class CouponDto : IDto
     {
