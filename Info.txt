@@ -7,15 +7,13 @@ Services
 	OrderAPI : 5015
 
 Passowrds
-	Portainer : localhost:9443 - Admin - 258258258
-	PostgreSql : Superuser sa = Password : Pasword12*
-
-
-
+	Portainer : port: localhost:9443, user: Admin, password: 258258258
+	PostgreSql : user: sa, Password: Pasword12*
+	orderdb Sql : user: sa, password : Password12*, port:1444 
+	identitydb Sql : sa password = 135792468*
 
 
 SCRIPTS
-
 Coupon Db Script (postgre)
 -----------------
 create table Coupon(

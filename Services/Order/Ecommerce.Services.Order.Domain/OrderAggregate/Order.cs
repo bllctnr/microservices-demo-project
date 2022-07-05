@@ -9,13 +9,17 @@ namespace Ecommerce.Services.Order.Domain.OrderAggregate
 {
     public class Order : Entity, IAggregateRoot
     {
+        public Order()
+        {
+
+        }
+
         public DateTime CreatedDate { get; private set; }
         public Address Address { get; private set; }
         public string CustomerId { get; private set; }
 
         private readonly List<OrderItem> _orderItems; // Backing field
         public IReadOnlyCollection<OrderItem> OrderItems => _orderItems;
-
 
         public Order(string customerId, Address address) 
         {
