@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Services.Order.Infrastructure
 {
-    internal class OrderDbContext : DbContext
+    public class OrderDbContext : DbContext
     {
         public const string DEFAULT_SCHEMA = "ordering";
 
