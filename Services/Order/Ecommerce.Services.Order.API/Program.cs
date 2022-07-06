@@ -1,4 +1,6 @@
+using Core.IdentityService;
 using Ecommerce.Services.Order.Infrastructure;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +19,12 @@ builder.Services.AddDbContext<OrderDbContext>(opt =>
         configure.MigrationsAssembly("Ecommerce.Services.Order.Infrastructure");
     });
 });
+
+// MediatR => takes assembly including handlers
+builder.Services.AddMediatR(typeof(Ecommerce.Services.Order.Application.Handlers.CreateOrderCommandHandler).Assembly);
+
+builder.Services.AddHttpContextAccessor(); // For identity server
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
 var app = builder.Build();
 

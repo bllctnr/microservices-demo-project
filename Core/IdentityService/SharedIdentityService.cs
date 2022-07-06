@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Core.IdentityService
 {
-    public class SharedIdentityManager : ISharedIdentityService
+    public class SharedIdentityService : ISharedIdentityService
     {
         private IHttpContextAccessor _httpContextAccessor;
-        public SharedIdentityManager(IHttpContextAccessor httpContextAccessor)
+        public SharedIdentityService(IHttpContextAccessor httpContextAccessor)
         {
             _httpContextAccessor = httpContextAccessor;
         }
 
         public string GetUserId() 
         {
-            return _httpContextAccessor.HttpContext.User.Claims.Where(x => x.Type == "sub").FirstOrDefault().Value;
+            return _httpContextAccessor.HttpContext.User.FindFirst(x => x.Type == "sub").Value;
         }
     }
 }

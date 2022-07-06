@@ -40,7 +40,7 @@ builder.Services.AddHttpContextAccessor();
 
 
 // Dependency Resolve
-builder.Services.AddScoped<ISharedIdentityService, SharedIdentityManager>();
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 builder.Services.AddScoped<ICouponService, CouponManager>();
 
 

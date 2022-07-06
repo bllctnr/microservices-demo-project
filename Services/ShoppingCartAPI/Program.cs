@@ -39,7 +39,7 @@ builder.Services.AddSingleton<RedisService>(sp =>
 });
 
 // Dependency Resolve
-builder.Services.AddScoped<ISharedIdentityService, SharedIdentityManager>();
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartManager>();
 
 var app = builder.Build();

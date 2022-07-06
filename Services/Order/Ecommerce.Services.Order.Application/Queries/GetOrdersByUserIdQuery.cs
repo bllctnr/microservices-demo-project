@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Services.Order.Application.Queries
 {
-    class GetOrdersByUserIdQuery : IRequest<IJsonDataResult<List<OrderDto>>>
+    public class GetOrdersByUserIdQuery : IRequest<IJsonDataResult<List<OrderDto>>>
     {
         public string UserId { get; set; }
     }
