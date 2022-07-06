@@ -19,6 +19,7 @@ namespace IdentityServer
             new ApiResource("resource_photostock"){ Scopes = {"photostock_fullpermission"}},
             new ApiResource("resource_shoppingcart"){ Scopes = {"shoppingcart_fullpermission"}},
             new ApiResource("resource_coupon"){ Scopes = {"coupon_fullpermission"}},
+            new ApiResource("resource_order"){ Scopes = {"order_fullpermission"}},
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -39,6 +40,7 @@ namespace IdentityServer
                 new ApiScope("photostock_fullpermission","Full permission for Photo Stock API"),
                 new ApiScope("shoppingcart_fullpermission", "Full permission for shoppingcart"),
                 new ApiScope("coupon_fullpermission", "Full permission for coupon API"),
+                new ApiScope("order_fullpermission", "Full permission for order API"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -56,6 +58,7 @@ namespace IdentityServer
                         "photostock_fullpermission",
                         "shoppingcart_fullpermission",
                         "coupon_fullpermission",
+                        "order_fullpermission",
                         IdentityServerConstants.LocalApi.ScopeName
                     }
                 },
@@ -71,6 +74,7 @@ namespace IdentityServer
                         "photostock_fullpermission",
                         "shoppingcart_fullpermission",
                         "coupon_fullpermission",
+                        "order_fullpermission",
                         IdentityServerConstants.StandardScopes.Email, 
                         IdentityServerConstants.StandardScopes.OpenId, 
                         IdentityServerConstants.StandardScopes.Profile,

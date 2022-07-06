@@ -24,11 +24,11 @@ namespace Ecommerce.Services.Order.Application.Handlers
         public async Task<JsonDataResult<CreatedOrderDto>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var newAddress = new Address(
-                request.AddressDto.Province, 
-                request.AddressDto.District, 
-                request.AddressDto.Street, 
-                request.AddressDto.ZipCode, 
-                request.AddressDto.Line
+                request.Address.Province, 
+                request.Address.District, 
+                request.Address.Street, 
+                request.Address.ZipCode, 
+                request.Address.Line
                 );
 
             Domain.OrderAggregate.Order newOrder = new Domain.OrderAggregate.Order(request.CustomerId, newAddress);

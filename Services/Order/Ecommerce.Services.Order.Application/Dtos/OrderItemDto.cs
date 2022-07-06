@@ -8,9 +8,9 @@ namespace Ecommerce.Services.Order.Application.Dtos
 {
     public class OrderItemDto
     {
-        public string ProductId { get; private set; }
-        public string ProductName { get; private set; }
-        public string PhotoUrl { get; private set; }
-        public Decimal Price { get; private set; }
+        public string ProductId { get; set; }
+        public string ProductName { get; set; }
+        public string PhotoUrl { get; set; }
+        public Decimal Price { get; set; }
     }
 }
