@@ -38,6 +38,7 @@ namespace Ecommerce.Services.Order.Application.Handlers
                 newOrder.AddOrderItem(x.ProductId, x.ProductName, x.Price, x.PhotoUrl);
             });
 
+            await _context.Orders.AddAsync(newOrder);
             var result = await _context.SaveChangesAsync();
 
             return new SuccessJsonDataResult<CreatedOrderDto>(new CreatedOrderDto {OrderId = newOrder.Id }, Messages.RecordsAdded);

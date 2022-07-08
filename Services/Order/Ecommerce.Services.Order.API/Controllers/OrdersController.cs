@@ -24,14 +24,14 @@ namespace Ecommerce.Services.Order.API.Controllers
         public async Task<IActionResult> GetOrders() 
         {
             var response = await _mediator.Send(new GetOrdersByUserIdQuery { UserId = _sharedIdentityService.GetUserId()});
-            return Ok(response.Data);
+            return Ok(response);
         }
 
         [HttpPost]
         public async Task<IActionResult> SaveOrder(CreateOrderCommand createOrderCommand) 
         {
             var response = await _mediator.Send(createOrderCommand);
-            return Ok(response.Data);
+            return Ok(response);
         }
     }
 }

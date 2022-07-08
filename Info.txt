@@ -5,6 +5,7 @@ Services
 	BasketAPI : 5013
 	CouponAPI : 5014
 	OrderAPI : 5015
+	PaymentAPI : 5016
 
 Passowrds
 	Portainer : port: localhost:9443, user: Admin, password: 258258258

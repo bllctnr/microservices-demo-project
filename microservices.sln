@@ -38,13 +38,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Services.Order.AP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "Services\IdentityServer\IdentityServer.csproj", "{36BDA336-139F-4DA2-8E82-E9926A50907A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Services.Order.Application", "Services\Order\Ecommerce.Services.Order.Application\Ecommerce.Services.Order.Application.csproj", "{D3CEA6B9-FD98-4153-A480-790C1254E568}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Services.Order.Application", "Services\Order\Ecommerce.Services.Order.Application\Ecommerce.Services.Order.Application.csproj", "{D3CEA6B9-FD98-4153-A480-790C1254E568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Services.Order.Domain", "Services\Order\Ecommerce.Services.Order.Domain\Ecommerce.Services.Order.Domain.csproj", "{E6D8978F-544A-46F1-86EA-703DA14E31F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Services.Order.Domain", "Services\Order\Ecommerce.Services.Order.Domain\Ecommerce.Services.Order.Domain.csproj", "{E6D8978F-544A-46F1-86EA-703DA14E31F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Services.Order.Domain.Core", "Services\Order\Ecommerce.Services.Order.Domain.Core\Ecommerce.Services.Order.Domain.Core.csproj", "{026CAFDA-3CA7-4A33-A090-4FC2CDF1C997}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Services.Order.Domain.Core", "Services\Order\Ecommerce.Services.Order.Domain.Core\Ecommerce.Services.Order.Domain.Core.csproj", "{026CAFDA-3CA7-4A33-A090-4FC2CDF1C997}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Services.Order.Infrastructure", "Services\Order\Ecommerce.Services.Order.Infrastructure\Ecommerce.Services.Order.Infrastructure.csproj", "{6E27ED84-EB63-460B-8362-DD4575F3B8CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Services.Order.Infrastructure", "Services\Order\Ecommerce.Services.Order.Infrastructure\Ecommerce.Services.Order.Infrastructure.csproj", "{6E27ED84-EB63-460B-8362-DD4575F3B8CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{E010ECCA-14F5-4922-87B1-FE482A28237D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Services.Payment.API", "Services\PaymentAPI\Ecommerce.Services.Payment.API.csproj", "{B7B9090C-271E-4D24-B910-A2492AC7DD5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,6 +100,10 @@ Global
 		{6E27ED84-EB63-460B-8362-DD4575F3B8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E27ED84-EB63-460B-8362-DD4575F3B8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E27ED84-EB63-460B-8362-DD4575F3B8CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B9090C-271E-4D24-B910-A2492AC7DD5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B9090C-271E-4D24-B910-A2492AC7DD5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B9090C-271E-4D24-B910-A2492AC7DD5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B9090C-271E-4D24-B910-A2492AC7DD5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +126,8 @@ Global
 		{E6D8978F-544A-46F1-86EA-703DA14E31F1} = {1435605D-EC29-497A-ACA8-01212D588560}
 		{026CAFDA-3CA7-4A33-A090-4FC2CDF1C997} = {1435605D-EC29-497A-ACA8-01212D588560}
 		{6E27ED84-EB63-460B-8362-DD4575F3B8CB} = {1435605D-EC29-497A-ACA8-01212D588560}
+		{E010ECCA-14F5-4922-87B1-FE482A28237D} = {7FE6C585-0D17-4DDF-A8B3-4F192BDDF174}
+		{B7B9090C-271E-4D24-B910-A2492AC7DD5B} = {E010ECCA-14F5-4922-87B1-FE482A28237D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC7C4BED-4A92-4C94-869D-CDFD363FE61B}
