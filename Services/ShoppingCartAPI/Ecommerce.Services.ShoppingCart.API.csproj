@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entities\Abstract\**" />
+    <Compile Remove="Entities\Concrete\**" />
+    <Content Remove="Entities\Abstract\**" />
+    <Content Remove="Entities\Concrete\**" />
+    <EmbeddedResource Remove="Entities\Abstract\**" />
+    <EmbeddedResource Remove="Entities\Concrete\**" />
+    <None Remove="Entities\Abstract\**" />
+    <None Remove="Entities\Concrete\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
     <PackageReference Include="StackExchange.Redis" Version="2.5.61" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
@@ -14,11 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Entities\Abstract\" />
-    <Folder Include="Entities\Concrete\" />
   </ItemGroup>
 
 </Project>

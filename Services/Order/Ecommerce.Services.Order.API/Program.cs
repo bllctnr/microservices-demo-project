@@ -9,6 +9,10 @@ using System.IdentityModel.Tokens.Jwt;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpContextAccessor(); // For identity server
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
+
+
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build(); // Create Policy
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub"); // Remove mapping of sub
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
@@ -36,8 +40,7 @@ builder.Services.AddDbContext<OrderDbContext>(opt =>
 // MediatR => takes assembly including handlers
 builder.Services.AddMediatR(typeof(Ecommerce.Services.Order.Application.Handlers.CreateOrderCommandHandler).Assembly);
 
-builder.Services.AddHttpContextAccessor(); // For identity server
-builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
+
 
 var app = builder.Build();
 

@@ -54,7 +54,7 @@ namespace Ecommerce.Services.CouponCode.APIBusiness.Concrete
         public async Task<IJsonDataResult<CouponDto>> GetByUserIdAndCode(string code, string userId)
         {
             var coupon = await _dbConnection.QueryAsync<Coupon>("select * from coupon where userid=@UserId and code=@Code", new { UserId = userId, Code = code });
-            return new SuccessJsonDataResult<CouponDto>(_mapper.Map<CouponDto>(coupon), Messages.RecordGetted);
+            return new SuccessJsonDataResult<CouponDto>(_mapper.Map<CouponDto>(coupon.SingleOrDefault()), Messages.RecordGetted);
         }
 
         public async Task<IJsonResult> Update(CouponDto coupon)

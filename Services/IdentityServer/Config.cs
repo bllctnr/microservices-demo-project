@@ -28,7 +28,7 @@ namespace IdentityServer
                    {
                        // Informations accessible by client
                        new IdentityResources.Email(),
-                       new IdentityResources.OpenId(),
+                       new IdentityResources.OpenId(), // Sub
                        new IdentityResources.Profile(),
                        new IdentityResource(){ Name="roles", DisplayName="Roles", Description="User Roles", UserClaims = new[]{"role"}}
                    };
@@ -59,7 +59,8 @@ namespace IdentityServer
                         "shoppingcart_fullpermission",
                         "coupon_fullpermission",
                         "order_fullpermission",
-                        IdentityServerConstants.LocalApi.ScopeName
+                        IdentityServerConstants.LocalApi.ScopeName,
+
                     }
                 },
                 new Client
@@ -69,20 +70,19 @@ namespace IdentityServer
                     AllowOfflineAccess = true,
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword, // Client credentials does not include refresh token
-                    AllowedScopes = {
+                    AllowedScopes={
                         "catalog_fullpermission",
                         "photostock_fullpermission",
                         "shoppingcart_fullpermission",
                         "coupon_fullpermission",
                         "order_fullpermission",
                         IdentityServerConstants.StandardScopes.Email, 
-                        IdentityServerConstants.StandardScopes.OpenId, 
-                        IdentityServerConstants.StandardScopes.Profile,
-                        IdentityServerConstants.StandardScopes.OfflineAccess,
-                        IdentityServerConstants.LocalApi.ScopeName,
-                        // To get new token with refresh token
-                        "roles" 
-                    }, AccessTokenLifetime = 1*60*60, // 1 hour
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile, 
+                        IdentityServerConstants.StandardScopes.OfflineAccess, 
+                        IdentityServerConstants.LocalApi.ScopeName,"roles" 
+                    }, 
+                    AccessTokenLifetime = 1*60*60, // 1 hour
                     RefreshTokenExpiration = TokenExpiration.Absolute, 
                     AbsoluteRefreshTokenLifetime = (int)(DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds,
                     RefreshTokenUsage = TokenUsage.ReUse
