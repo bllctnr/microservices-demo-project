@@ -10,6 +10,7 @@ namespace Core.IdentityService
     public class SharedIdentityService : ISharedIdentityService
     {
         private IHttpContextAccessor _httpContextAccessor;
+
         public SharedIdentityService(IHttpContextAccessor httpContextAccessor)
         {
             _httpContextAccessor = httpContextAccessor;
@@ -17,7 +18,8 @@ namespace Core.IdentityService
 
         public string GetUserId() 
         {
-            return _httpContextAccessor.HttpContext.User.FindFirst(x => x.Type == "sub").Value;
+            var test = _httpContextAccessor.HttpContext.User.FindFirst("sub");
+            return _httpContextAccessor.HttpContext.User.FindFirst("sub").Value;
         }
     }
 }

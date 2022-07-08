@@ -8,6 +8,6 @@ namespace Core.IdentityService
 {
     public interface ISharedIdentityService
     {
-        string GetUserId();
+        public string GetUserId();
     }
 }
