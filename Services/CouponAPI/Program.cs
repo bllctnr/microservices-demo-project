@@ -15,7 +15,7 @@ JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub"); // Remove mapp
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     // Token Issuer
-    options.Authority = builder.Configuration.GetSection("IdentityServerUrl").Value;
+    options.Authority = builder.Configuration.GetSection("IdentityServerURL").Value;
     options.Audience = "resource_coupon";
     options.RequireHttpsMetadata = false;
 });

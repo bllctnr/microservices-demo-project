@@ -21,6 +21,7 @@ namespace IdentityServer
             new ApiResource("resource_coupon"){ Scopes = {"coupon_fullpermission"}},
             new ApiResource("resource_order"){ Scopes = {"order_fullpermission"}},
             new ApiResource("resource_payment"){ Scopes = {"payment_fullpermission"}},
+            new ApiResource("resource_gateway"){ Scopes = {"gateway_fullpermission"}},
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -43,6 +44,7 @@ namespace IdentityServer
                 new ApiScope("coupon_fullpermission", "Full permission for coupon API"),
                 new ApiScope("order_fullpermission", "Full permission for order API"),
                 new ApiScope("payment_fullpermission", "Full permission for payment API"),
+                new ApiScope("gateway_fullpermission", "Full permission for gateway"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -51,8 +53,8 @@ namespace IdentityServer
             {
                 new Client
                 {
-                    ClientName = "Asp.Net Core Mvc",
-                    ClientId = "WebMvcClient",
+                    ClientName = "Client",
+                    ClientId = "WebClient",
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = {
@@ -62,14 +64,15 @@ namespace IdentityServer
                         "coupon_fullpermission",
                         "order_fullpermission",
                         "payment_fullpermission",
+                        "gateway_fullpermission",
                         IdentityServerConstants.LocalApi.ScopeName,
 
                     }
                 },
                 new Client
                 {
-                    ClientName = "Asp.Net Core Mvc",
-                    ClientId = "WebMvcClientForUser",
+                    ClientName = "Client",
+                    ClientId = "WebClientForUser",
                     AllowOfflineAccess = true,
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword, // Client credentials does not include refresh token
@@ -80,6 +83,7 @@ namespace IdentityServer
                         "coupon_fullpermission",
                         "order_fullpermission",
                         "payment_fullpermission",
+                        "gateway_fullpermission",
                         IdentityServerConstants.StandardScopes.Email, 
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile, 

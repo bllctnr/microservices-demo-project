@@ -19,7 +19,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 {
     // Token Issuer
     options.Authority = builder.Configuration.GetSection("IdentityServerUrl").Value;
-    options.Audience = "resource_coupon";
+    options.Audience = "resource_order";
     options.RequireHttpsMetadata = false;
 });
 
