@@ -2,11 +2,6 @@
 {
     public class OrderDto
     {
-        public OrderDto()
-        {
-            OrderItems = new List<OrderItemDto>();
-        }
-
         public string CustomerId { get; set; }
         public List<OrderItemDto> OrderItems { get; set; }
         public AddressDto Address { get; set; }
@@ -14,9 +9,9 @@
 
     public class OrderItemDto 
     {
-        public string ProdutctId { get; set; }
+        public string ProductId { get; set; }
         public string ProductName { get; set; }
-        public string PictureUrl { get; set; }
+        public string PhotoUrl { get; set; }
         public Decimal Price { get; set; }
     }
 

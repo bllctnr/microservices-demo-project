@@ -52,7 +52,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Services.Payment.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{CF72622C-2469-4E0A-9811-92DFD4262CD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Gateway", "Gateways\Ecommerce.Gateway\Ecommerce.Gateway.csproj", "{F0199172-E9F9-49DC-B5BA-DA3C4B35864F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Gateway", "Gateways\Ecommerce.Gateway\Ecommerce.Gateway.csproj", "{F0199172-E9F9-49DC-B5BA-DA3C4B35864F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

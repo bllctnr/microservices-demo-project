@@ -8,6 +8,12 @@ namespace Core.Messages
 {
     public class CreateOrderMessageCommand
     {
+        public CreateOrderMessageCommand()
+        {
+            OrderItems = new List<OrderItem>();
+            Address = new Address();
+        }
+
         public string CustomerId { get; set; }
         public List<OrderItem> OrderItems { get; set; }
         public Address Address { get; set; }
