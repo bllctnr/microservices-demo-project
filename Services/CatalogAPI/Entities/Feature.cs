@@ -1,10 +1,9 @@
-﻿using Ecommerce.Services.Catalog.APIEntities.Abstract;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Ecommerce.Services.Catalog.APIEntities
 {
-    public class Feature : IEntity
+    public class Feature
     {
         public string Color { get; set; }
     }
