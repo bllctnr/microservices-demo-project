@@ -59,6 +59,10 @@ namespace IdentityServer
             builder.AddDeveloperSigningCredential();
             // Add user password validator
             builder.AddResourceOwnerValidator<IDentityResourceOwnerPasswordValidator>();
+
+            // Added new grant type for token exchange
+            builder.AddExtensionGrantValidator<TokenExchangeExtensionGrantValidator>();
+            
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {

@@ -18,7 +18,6 @@ namespace IdentityServer
             new ApiResource("resource_catalog"){ Scopes = {"catalog_fullpermission"}},
             new ApiResource("resource_photostock"){ Scopes = {"photostock_fullpermission"}},
             new ApiResource("resource_shoppingcart"){ Scopes = {"shoppingcart_fullpermission"}},
-            new ApiResource("resource_coupon"){ Scopes = {"coupon_fullpermission"}},
             new ApiResource("resource_order"){ Scopes = {"order_fullpermission"}},
             new ApiResource("resource_payment"){ Scopes = {"payment_fullpermission"}},
             new ApiResource("resource_gateway"){ Scopes = {"gateway_fullpermission"}},
@@ -41,7 +40,6 @@ namespace IdentityServer
                 new ApiScope("catalog_fullpermission","Full permission for Catalog API"),
                 new ApiScope("photostock_fullpermission","Full permission for Photo Stock API"),
                 new ApiScope("shoppingcart_fullpermission", "Full permission for shoppingcart"),
-                new ApiScope("coupon_fullpermission", "Full permission for coupon API"),
                 new ApiScope("order_fullpermission", "Full permission for order API"),
                 new ApiScope("payment_fullpermission", "Full permission for payment API"),
                 new ApiScope("gateway_fullpermission", "Full permission for gateway"),
@@ -61,7 +59,6 @@ namespace IdentityServer
                         "catalog_fullpermission", 
                         "photostock_fullpermission",
                         "shoppingcart_fullpermission",
-                        "coupon_fullpermission",
                         "order_fullpermission",
                         "payment_fullpermission",
                         "gateway_fullpermission",
@@ -80,9 +77,7 @@ namespace IdentityServer
                         "catalog_fullpermission",
                         "photostock_fullpermission",
                         "shoppingcart_fullpermission",
-                        "coupon_fullpermission",
                         "order_fullpermission",
-                        "payment_fullpermission",
                         "gateway_fullpermission",
                         IdentityServerConstants.StandardScopes.Email, 
                         IdentityServerConstants.StandardScopes.OpenId,
@@ -92,6 +87,22 @@ namespace IdentityServer
                     }, 
                     AccessTokenLifetime = 1*60*60, // 1 hour
                     RefreshTokenExpiration = TokenExpiration.Absolute, 
+                    AbsoluteRefreshTokenLifetime = (int)(DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds,
+                    RefreshTokenUsage = TokenUsage.ReUse
+                },
+                new Client
+                {
+                    ClientName = "Token Exchange Client",
+                    ClientId = "TokenExchangeClient",
+                    AllowOfflineAccess = true,
+                    ClientSecrets = {new Secret("secret".Sha256())},
+                    AllowedGrantTypes = new[]{"urn.ietf:params:oauth:grant-type:token-exchange"}, // Client credentials does not include refresh token
+                    AllowedScopes={
+                        "payment_fullpermission",
+                        IdentityServerConstants.StandardScopes.OpenId
+                    },
+                    AccessTokenLifetime = 1*60*60, // 1 hour
+                    RefreshTokenExpiration = TokenExpiration.Absolute,
                     AbsoluteRefreshTokenLifetime = (int)(DateTime.Now.AddDays(60)-DateTime.Now).TotalSeconds,
                     RefreshTokenUsage = TokenUsage.ReUse
                 }
