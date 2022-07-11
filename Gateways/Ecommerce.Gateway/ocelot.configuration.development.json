@@ -57,24 +57,6 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5014
-        }
-      ],
-      "UpstreamPathTemplate": "/services/couponcode/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "DelegatingHandlers": [ "TokenExhangeDelegateHandler" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "GatewayAuthenticationScheme",
-        "AllowedScopes": [ "coupon_fullpermission" ]
-      }
-    },
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
           "Port": 5015
         }
       ],
