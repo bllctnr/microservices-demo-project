@@ -31,7 +31,7 @@ namespace Ecommerce.Services.Order.Application.Handlers
             }
 
             var ordersDto = ObjectMapper.Mapper.Map<List<OrderDto>>(orders);
-            return new SuccessJsonDataResult<List<OrderDto>>(ordersDto, Messages.RecordsListed);
+            return  new SuccessJsonDataResult<List<OrderDto>>(ordersDto, Messages.RecordsListed);
         }
     }
 }

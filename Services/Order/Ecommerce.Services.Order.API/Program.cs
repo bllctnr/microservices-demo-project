@@ -1,5 +1,7 @@
 using Core.IdentityService;
+using Ecommerce.Services.Order.Application.Consumer;
 using Ecommerce.Services.Order.Infrastructure;
+using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -22,6 +24,34 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.Audience = "resource_order";
     options.RequireHttpsMetadata = false;
 });
+
+// Mass transit & Rabbit MQ configuration
+builder.Services.AddMassTransit(x => {
+
+    // Define consumers
+    x.AddConsumer<CreateOrderMessageCommandConsumer>();
+    x.AddConsumer<ProductUpdatedEventConsumer>();
+
+    // Default Port : 5672
+    x.UsingRabbitMq((context, cfg) => {
+        cfg.Host(builder.Configuration.GetSection("RabbitMQUrl").Value, "/", host => {
+            host.Username("guest");
+            host.Password("guest");
+        });
+
+        // Define rabbitmq queue and consumer to run operation
+        cfg.ReceiveEndpoint("create-order-service", e => {
+            e.ConfigureConsumer<CreateOrderMessageCommandConsumer>(context);
+        });
+
+        // Product updated event => eventual consistency
+        cfg.ReceiveEndpoint("product-updated-event-order-service", e => {
+            e.ConfigureConsumer<ProductUpdatedEventConsumer>(context);
+        });
+
+    });
+});
+builder.Services.AddMassTransitHostedService();
 
 
 builder.Services.AddControllers();

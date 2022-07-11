@@ -3,6 +3,7 @@ using Ecommerce.Services.Catalog.APIBusiness.Abstract;
 using Ecommerce.Services.Catalog.APIBusiness.Concrete;
 using Ecommerce.Services.Catalog.APIServices;
 using Ecommerce.Services.Catalog.APISettings;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
@@ -23,6 +24,19 @@ builder.Services.AddControllers(options =>
     // Add authorize to all controllers
     options.Filters.Add(new AuthorizeFilter());
 });
+
+// Mass transit & Rabbit MQ configuration
+builder.Services.AddMassTransit(x => {
+    // Default Port : 5672
+    x.UsingRabbitMq((context, cfg) => {
+        cfg.Host(builder.Configuration.GetSection("RabbitMQUrl").Value, "/", host => {
+            host.Username("guest");
+            host.Password("guest");
+        });
+    });
+});
+
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

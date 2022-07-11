@@ -2,6 +2,6 @@
 {
     public class FeatureDto : IDto
     {
-        public int Duration { get; set; }
+        public string Color { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace Ecommerce.Services.Order.Application.Handlers
 
             request.OrderItems.ForEach(x =>
             {
-                newOrder.AddOrderItem(x.ProductId, x.ProductName, x.Price, x.PhotoUrl);
+                newOrder.AddOrderItem(x.ProductId, x.ProductName, x.Price, x.Picture);
             });
 
             await _context.Orders.AddAsync(newOrder);

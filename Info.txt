@@ -33,9 +33,3 @@ CreatedDate timestamp not null default CURRENT_TIMESTAMP
 
 // rabbitmq management
 docker run -d -p 15672:15672 -p 5672:5672 --name rabbitmqcontainer rabbitmq:3.8.14-management
-
-Will be implemented
----------
-Exception handling pattern
-AutoMapper for all projects
-Best practices of restful endpoints

@@ -50,8 +50,15 @@ namespace Ecommerce.Services.Catalog.APIServices
 
         public async Task<Core.Results.IJsonResult> DeleteAsync(string categoryId)
         {
-            var result = await _categoryCollection.DeleteOneAsync(categoryId);
-            return new SuccessJsonResult("Record Deleted");
+            var result = await _categoryCollection.DeleteOneAsync(category => category.Id == categoryId);
+            if (result.DeletedCount > 0)
+            {
+                return new SuccessJsonResult("Category Deleted");
+            }
+            else
+            {
+                return new ErrorJsonResult("Category Not Found!");
+            }
         }
     }
 }

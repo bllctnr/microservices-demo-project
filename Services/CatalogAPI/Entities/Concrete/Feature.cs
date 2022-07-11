@@ -6,6 +6,6 @@ namespace Ecommerce.Services.Catalog.APIEntities
 {
     public class Feature : IEntity
     {
-        public int Duration { get; set; }
+        public string Color { get; set; }
     }
 }

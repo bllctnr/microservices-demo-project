@@ -48,5 +48,16 @@ namespace Ecommerce.Services.Catalog.APIControllers
             return Ok(response);
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var response = await _categoryService.DeleteAsync(id);
+            if (!response.Success)
+            {
+                return BadRequest(response.Message);
+            }
+            return Ok(response);
+        }
+
     }
 }

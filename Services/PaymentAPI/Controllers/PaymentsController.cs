@@ -24,6 +24,7 @@ namespace Ecommerce.Services.Payment.API.Controllers
             var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri("queue:create-order-service"));
 
             var createOrderMessageCommand = new CreateOrderMessageCommand();
+            createOrderMessageCommand.CustomerId = paymentDto.Order.CustomerId;
             createOrderMessageCommand.Address.Province = paymentDto.Order.Address.Province;
             createOrderMessageCommand.Address.District = paymentDto.Order.Address.District;
             createOrderMessageCommand.Address.Street = paymentDto.Order.Address.Street;
@@ -37,7 +38,7 @@ namespace Ecommerce.Services.Payment.API.Controllers
                         ProductName = orderItem.ProductName,
                         ProductId = orderItem.ProductId,
                         Price = orderItem.Price,
-                        PhotoUrl = orderItem.PhotoUrl
+                        Picture = orderItem.Picture
                     });
             }
 
