@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Ecommerce.Gateway.DelegateHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,9 @@ builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthenticationScheme",
     options.RequireHttpsMetadata = false;
 });
 
-builder.Services.AddOcelot();
+// Added token excxhange delegate handler
+builder.Services.AddOcelot().AddDelegatingHandler<TokenExchangeDelegateHandler>();
+builder.Services.AddHttpClient<TokenExchangeDelegateHandler>();
 
 
 var app = builder.Build();
