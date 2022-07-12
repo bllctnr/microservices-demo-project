@@ -91,7 +91,7 @@ namespace IdentityServer
                     ClientId = "TokenExchangeClient",
                     AllowOfflineAccess = true,
                     ClientSecrets = {new Secret("secret".Sha256())},
-                    AllowedGrantTypes = new[]{"urn.ietf:params:oauth:grant-type:token-exchange"}, // Client credentials does not include refresh token
+                    AllowedGrantTypes = new[]{"urn:ietf:params:oauth:grant-type:token-exchange"}, // Client credentials does not include refresh token
                     AllowedScopes={
                         "payment_fullpermission",
                         IdentityServerConstants.StandardScopes.OpenId

@@ -27,17 +27,18 @@ namespace Ecommerce.Gateway.DelegateHandlers
                 Policy = new DiscoveryPolicy { RequireHttps = false}
             });
 
-            TokenExchangeTokenRequest rokenExchangeTokenRequest = new TokenExchangeTokenRequest()
+            TokenExchangeTokenRequest tokenExchangeTokenRequest = new TokenExchangeTokenRequest()
             {
                 Address = disco.TokenEndpoint,
-                ClientId = _configuration["ClientSecret"],
+                ClientId = _configuration["ClientId"],
+                ClientSecret = _configuration["ClientSecret"],
                 GrantType = _configuration["TokenGrantType"],
                 SubjectToken = requestToken,
                 SubjectTokenType = "urn:ietf:params:oauth:token-type:access-token",
                 Scope = "openid payment_fullpermission"
             };
 
-            var tokenResponse = await _httpClient.RequestTokenExchangeTokenAsync(rokenExchangeTokenRequest);
+            var tokenResponse = await _httpClient.RequestTokenExchangeTokenAsync(tokenExchangeTokenRequest);
             if (tokenResponse.IsError)
             {
                 throw tokenResponse.Exception;
