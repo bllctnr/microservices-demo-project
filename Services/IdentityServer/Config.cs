@@ -71,6 +71,7 @@ namespace IdentityServer
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword, // Client credentials does not include refresh token
                     AllowedScopes={
+                        "catalog_fullpermission",
                         "shoppingcart_fullpermission",
                         "order_fullpermission",
                         "gateway_fullpermission",
