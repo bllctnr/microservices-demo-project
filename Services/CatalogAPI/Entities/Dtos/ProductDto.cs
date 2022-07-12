@@ -10,7 +10,5 @@
         public string Picture { get; set; }
         public DateTime CreatedDate { get; set; }
         public FeatureDto Feature { get; set; }
-        public string CategoryId { get; set; }
-        public CategoryDto Category { get; set; }
     }
 }

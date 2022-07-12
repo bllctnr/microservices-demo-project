@@ -9,7 +9,5 @@
         public string UserId { get; set; }
         public string Picture { get; set; }
         public Feature Feature { get; set; }
-        public string CategoryId { get; set; }
-        public Category Category { get; set; }
     }
 }

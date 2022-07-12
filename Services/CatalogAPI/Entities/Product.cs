@@ -17,9 +17,5 @@ namespace Ecommerce.Services.Catalog.APIEntities
         [BsonRepresentation(BsonType.DateTime)]
         public DateTime CreatedDate { get; set; }
         public Feature Feature { get; set; }
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string CategoryId { get; set; }
-        [BsonIgnore]
-        public Category Category { get; set; }
     }
 }

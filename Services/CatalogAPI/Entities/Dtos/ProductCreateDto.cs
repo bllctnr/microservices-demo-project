@@ -9,7 +9,5 @@
         public string Picture { get; set; }
         public DateTime CreatedDate { get { return DateTime.Now; } }
         public FeatureDto Feature { get; set; }
-        public string CategoryId { get; set; }
-        public CategoryDto Category { get; set; }
     }
 }

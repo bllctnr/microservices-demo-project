@@ -9,7 +9,6 @@ namespace Ecommerce.Services.Catalog.APIMapping
         public GeneralMappings()
         {
             CreateMap<Product, ProductDto>().ReverseMap();
-            CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<Feature, FeatureDto>().ReverseMap();
 
             CreateMap<Product, ProductCreateDto>().ReverseMap();

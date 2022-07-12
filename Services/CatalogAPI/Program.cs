@@ -1,7 +1,6 @@
 
 using Ecommerce.Services.Catalog.APIBusiness.Abstract;
 using Ecommerce.Services.Catalog.APIBusiness.Concrete;
-using Ecommerce.Services.Catalog.APIServices;
 using Ecommerce.Services.Catalog.APISettings;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -44,7 +43,6 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.Configure<DataBaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
 
 // Business
-builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 // Business
 
