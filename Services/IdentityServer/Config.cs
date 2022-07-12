@@ -58,9 +58,6 @@ namespace IdentityServer
                     AllowedScopes = {
                         "catalog_fullpermission", 
                         "photostock_fullpermission",
-                        "shoppingcart_fullpermission",
-                        "order_fullpermission",
-                        "payment_fullpermission",
                         "gateway_fullpermission",
                         IdentityServerConstants.LocalApi.ScopeName,
 
@@ -74,8 +71,6 @@ namespace IdentityServer
                     ClientSecrets = {new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword, // Client credentials does not include refresh token
                     AllowedScopes={
-                        "catalog_fullpermission",
-                        "photostock_fullpermission",
                         "shoppingcart_fullpermission",
                         "order_fullpermission",
                         "gateway_fullpermission",
