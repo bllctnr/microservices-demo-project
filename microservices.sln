@@ -21,6 +21,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Services.ShoppingCart.API", "Services\ShoppingCartAPI\Ecommerce.Services.ShoppingCart.API.csproj", "{70A39804-6C73-4FF7-864A-DD39C2ABEA9F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{7B486CB2-D8DB-4C78-9F5C-E4746157AB74}"
+	ProjectSection(SolutionItems) = preProject
+		Services\CatalogAPI\Entities\appsettings.Development.json = Services\CatalogAPI\Entities\appsettings.Development.json
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{1DBDDF25-99FF-4DE3-B78A-00C5DE0FDF28}"
 EndProject
