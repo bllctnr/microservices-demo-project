@@ -23,23 +23,6 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5012
-        }
-      ],
-      "UpstreamPathTemplate": "/services/photostock/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "GatewayAuthenticationScheme",
-        "AllowedScopes": [ "photostock_fullpermission" ]
-      }
-    },
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
           "Port": 5013
         }
       ],

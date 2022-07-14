@@ -4,9 +4,7 @@ Gateway : 5000
 Services :
 	Identity Server : 5001
 	Catalog API : 5011
-	PhotoService : 5012
 	Shopping Cart API : 5013
-	CouponAPI : 5014
 	OrderAPI : 5015
 	PaymentAPI : 5016
 
@@ -16,7 +14,6 @@ Containers :
 	PostgreSql : user: sa, Password: Pasword12*
 	orderdb Sql : user: sa, password : Password12*, port:1444 
 	identitydb Sql : sa password = 135792468*
-
 
 
 
@@ -31,5 +28,5 @@ Code varchar(50) not null,
 CreatedDate timestamp not null default CURRENT_TIMESTAMP
 )
 
-// rabbitmq management
+// rabbitmq with management
 docker run -d -p 15672:15672 -p 5672:5672 --name rabbitmqcontainer rabbitmq:3.8.14-management

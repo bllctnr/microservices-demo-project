@@ -16,7 +16,6 @@ namespace IdentityServer
         public static IEnumerable<ApiResource> ApiResources => new ApiResource[]
         {
             new ApiResource("resource_catalog"){ Scopes = {"catalog_fullpermission"}},
-            new ApiResource("resource_photostock"){ Scopes = {"photostock_fullpermission"}},
             new ApiResource("resource_shoppingcart"){ Scopes = {"shoppingcart_fullpermission"}},
             new ApiResource("resource_order"){ Scopes = {"order_fullpermission"}},
             new ApiResource("resource_payment"){ Scopes = {"payment_fullpermission"}},
@@ -38,7 +37,6 @@ namespace IdentityServer
             new ApiScope[]
             {
                 new ApiScope("catalog_fullpermission","Full permission for Catalog API"),
-                new ApiScope("photostock_fullpermission","Full permission for Photo Stock API"),
                 new ApiScope("shoppingcart_fullpermission", "Full permission for shoppingcart"),
                 new ApiScope("order_fullpermission", "Full permission for order API"),
                 new ApiScope("payment_fullpermission", "Full permission for payment API"),
@@ -57,7 +55,6 @@ namespace IdentityServer
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = {
                         "catalog_fullpermission", 
-                        "photostock_fullpermission",
                         "gateway_fullpermission",
                         IdentityServerConstants.LocalApi.ScopeName,
 

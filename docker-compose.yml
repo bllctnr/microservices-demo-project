@@ -35,11 +35,6 @@ services:
     build:
       context: .
       dockerfile: Services/PaymentAPI/Dockerfile
-  photoservice.api:
-    image: photoservice_api_image
-    build:
-      context: .
-      dockerfile: Services/PhotoserviceAPI/Dockerfile
   gateway.api:
     image: gateway_api_image
     build: 
@@ -56,5 +51,4 @@ volumes:
   shoppingcart.api_volume:
   order.api_volume:
   payment.api_volume:
-  photoservice.api_volume:
   gateway.api_volume:
