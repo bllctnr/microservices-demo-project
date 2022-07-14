@@ -1,16 +1,36 @@
 version: "3.8"
 services:
+  identitydb:
+    image: mcr.microsoft.com/mssql/server
   catalogdb:
     image: mongo
   shoppingcartdb:
     image: redis
-  identitydb:
-    image: mcr.microsoft.com/mssql/server
   orderdb:
     image: mcr.microsoft.com/mssql/server
   rabbitmq:
     image: rabbitmq:3.8.14-management
+  identityserver.api:
+    image: identityserver_api_image
+    build:
+      context: .
+      dockerfile: Services/IdentityServer/Dockerfile
+  catalog.api:
+    image : catalog_api_image
+    build:
+      context: .
+      dockerfile: Services/CatalogAPI/Dockerfile
+  order.api:
+    image: order_api_image
+    build:
+      context: .
+      dockerfile: Services/Order/Ecommerce.Services.Order.API/Dockerfile
 volumes:
-  catalogdb_volume:
   identitydb_volume:
+  catalogdb_volume:
+  shoppingcartdb_volume:
   orderdb_volume:
+  rabbitmq_volume:
+  identityserver.api_volume:
+  catalog.api_volume:
+  order.api_volume:

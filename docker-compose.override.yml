@@ -1,34 +1,39 @@
 version: "3.8"
 services:
-  catalogdb:
-    container_name: catalogdb
-    restart: always
-    ports: 
-      - "27017:27017"
-    volumes:
-      - catalogdb_volume:/data/db
-  shoppingcartdb:
-    container_name: shoppingcartdb
-    restart: always
-    ports: 
-      - "6379:6379"
   identitydb:
     container_name: identitydb
     restart: always
     ports: 
       - "1433:1433"
     volumes:
-      - identitydb_volume:/var/opt/mssql/data
+      - identitydb_volume:/usr/local/sbin
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=password12*
+  catalogdb:
+    container_name: catalogdb
+    restart: always
+    ports: 
+      - "27017:27017"
+    volumes:
+      - catalogdb_volume:/usr/local/sbin
+      - catalogdb_volume:/data/db
+      - catalogdb_volume:/data/configdb
+  shoppingcartdb:
+    container_name: shoppingcartdb
+    restart: always
+    ports: 
+      - "6379:6379"
+    volumes:
+      - shoppingcartdb_volume:/usr/local/sbin
+      - shoppingcartdb_volume:/data
   orderdb:
     container_name: orderdb
     restart: always
     ports: 
       - "1444:1433"
     volumes:
-      - orderdb_volume:/var/opt/mssql/data
+      - orderdb_volume:/usr/local/sbin
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Password12*
@@ -38,3 +43,41 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+    volumes:
+      - rabbitmq_volume:/opt/rabbitmq/sbin
+      - rabbitmq_volume:/var/lib/rabbitmq
+  identityserver.api:
+    container_name: identityserver.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:DefaultConnection=Server=identitydb,1433;Database=IdentityDb;User=sa;Password=password12*"
+    ports:
+      - "5001:80"
+    depends_on:
+      - identitydb
+    volumes:
+      - identityserver.api_volume:/usr/local/sbin
+  catalog.api:
+    container_name: catalog.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RabbitMQUrl=rabbitmq
+      - IdentityServerURL=http://identityserver.api
+      - DatabaseSettings:ConnectionString=mongodb://catalogdb:27017
+    ports:
+      - "5011:80"
+    depends_on:
+      - catalogdb
+    volumes:
+      - catalog.api_volume:/usr/local/sbin
+  order.api:
+    container_name: order.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerURL=http://identityserver.api
+      - RabbitMQUrl=rabbitmq
+      - "ConnectionStrings:DefaultConnection=Server=orderdb,1433;Database=OrderDb; User=sa; Password=Password12*"
+    ports:
+      - "5015:80"
+    depends_on:
+      - orderdb
