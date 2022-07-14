@@ -96,3 +96,32 @@ services:
       - orderdb
     volumes:
       - order.api_volume:/usr/local/sbin
+  payment.api:
+    container_name: payment.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerURL=http://identityserver.api
+      - RabbitMQUrl=rabbitmq
+    ports:
+      - "5016:80"
+  photoservice.api:
+    container_name: photoservice.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerURL=http://identityserver.api
+    ports:
+      - "5012:80"
+    volumes:
+      - photoservice.api_volume:/usr/local/sbin
+      - type: bind
+        source: C:\Users\bllctnr\Desktop\photos
+        target: /app/wwwroot/photos
+  gateway.api:
+    container_name: gateway.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - IdentityServerURL=http://identityserver.api
+    ports:
+      - "5000:80"
+    volumes:
+      - gateway.api_volume:/usr/local/sbin

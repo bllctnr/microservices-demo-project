@@ -30,6 +30,21 @@ services:
     build:
       context: .
       dockerfile: Services/Order/Ecommerce.Services.Order.API/Dockerfile
+  payment.api:
+    image: payment_api_image
+    build:
+      context: .
+      dockerfile: Services/PaymentAPI/Dockerfile
+  photoservice.api:
+    image: photoservice_api_image
+    build:
+      context: .
+      dockerfile: Services/PhotoserviceAPI/Dockerfile
+  gateway.api:
+    image: gateway_api_image
+    build: 
+      context: .
+      dockerfile: Gateways/Ecommerce.Gateway/Dockerfile
 volumes:
   identitydb_volume:
   catalogdb_volume:
@@ -40,3 +55,6 @@ volumes:
   catalog.api_volume:
   shoppingcart.api_volume:
   order.api_volume:
+  payment.api_volume:
+  photoservice.api_volume:
+  gateway.api_volume:
