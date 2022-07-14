@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,9 +21,13 @@ JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub"); // Remove mapp
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     // Token Issuer
-    options.Authority = builder.Configuration.GetSection("IdentityServerUrl").Value;
+    options.Authority = builder.Configuration.GetSection("IdentityServerURL").Value;
     options.Audience = "resource_order";
     options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false
+    };
 });
 
 // Mass transit & Rabbit MQ configuration

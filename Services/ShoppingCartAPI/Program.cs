@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using Ecommerce.Services.ShoppingCart.API.Business.Concrete;
 using Ecommerce.Services.ShoppingCart.API.DataAccess;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.Authority = builder.Configuration.GetSection("IdentityServerUrl").Value;
     options.Audience = "resource_shoppingcart";
     options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false
+    };
 });
 
 builder.Services.AddControllers(opt => {

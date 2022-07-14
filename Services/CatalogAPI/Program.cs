@@ -6,15 +6,20 @@ using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add Jwt Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     // Token Issuer
-    options.Authority = builder.Configuration.GetSection("IdentityServerUrl").Value;
+    options.Authority = builder.Configuration.GetSection("IdentityServerURL").Value;
     options.Audience = "resource_catalog";
     options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false
+    };
 });
 
 // Add services to the container.
