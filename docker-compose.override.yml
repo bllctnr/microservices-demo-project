@@ -70,6 +70,19 @@ services:
       - catalogdb
     volumes:
       - catalog.api_volume:/usr/local/sbin
+  shoppingcart.api:
+    container_name: shoppingcart.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - IdentityServerURL=http://identityserver.api
+      - RedisSettings:Port=6379
+      - RedisSettings:Host=shoppingcartdb
+    ports:
+      - "5013:80"
+    depends_on:
+      - shoppingcartdb
+    volumes:
+      - shoppingcart.api_volume:/usr/local/sbin
   order.api:
     container_name: order.api
     environment:
@@ -81,3 +94,5 @@ services:
       - "5015:80"
     depends_on:
       - orderdb
+    volumes:
+      - order.api_volume:/usr/local/sbin

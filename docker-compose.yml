@@ -20,6 +20,11 @@ services:
     build:
       context: .
       dockerfile: Services/CatalogAPI/Dockerfile
+  shoppingcart.api:
+    image: shoppingcart_api_image
+    build: 
+      context: .
+      dockerfile: Services/ShoppingCartAPI/Dockerfile
   order.api:
     image: order_api_image
     build:
@@ -33,4 +38,5 @@ volumes:
   rabbitmq_volume:
   identityserver.api_volume:
   catalog.api_volume:
+  shoppingcart.api_volume:
   order.api_volume:
